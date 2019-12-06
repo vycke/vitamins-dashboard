@@ -5,7 +5,7 @@ import get from 'utils/get';
 export default function CrumbRow({ crumb }) {
   const [show, setShow] = React.useState(false);
   return (
-    <div className="row row--inline">
+    <div className="row">
       <div className="row__header">
         <span className="bold">{convertDateTime(get(crumb, 'timestamp'))}</span>
         <span className="tag">{get(crumb, 'category', '')}</span>
