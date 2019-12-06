@@ -10,13 +10,14 @@ export default function CrumbRow({ crumb }) {
         <span className="bold">{convertDateTime(get(crumb, 'timestamp'))}</span>
         <span className="tag">{get(crumb, 'category', '')}</span>
         <span>{get(crumb, 'message', '')}</span>
+        <div className="flex-grow" />
+        {crumb.metadata && (
+          <button onClick={() => setShow(!show)} className="button">
+            <span>{show ? 'hide' : 'show'}</span>
+          </button>
+        )}
       </div>
-      <div className="flex-grow" />
-      {crumb.metadata && (
-        <button onClick={() => setShow(!show)} className="button">
-          <span>{show ? 'hide' : 'show'}</span>
-        </button>
-      )}
+
       {show && crumb.metadata && (
         <div className="row__content">
           <pre className="language-js">
