@@ -26,7 +26,9 @@ export default function ErrorRow({ log }) {
           <span className="message">{get(log, 'error.message')}</span>
           {log.breadcrumbs && <span className="header">Breadcrumbs</span>}
           {log.breadcrumbs &&
-            log.breadcrumbs.map((c, i) => <CrumbRow key={i} crumb={c} />)}
+            log.breadcrumbs.map((c, i) => (
+              <CrumbRow key={i} crumb={c} className="row--inline" />
+            ))}
           {log.error.stack && <span className="header">Stacktrace</span>}
           {log.error.stack && (
             <pre className="language-js">

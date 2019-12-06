@@ -2,10 +2,10 @@ import React from 'react';
 import convertDateTime from 'utils/convertDateTime';
 import get from 'utils/get';
 
-export default function CrumbRow({ crumb }) {
+export default function CrumbRow({ crumb, className = '' }) {
   const [show, setShow] = React.useState(false);
   return (
-    <div className="row">
+    <div className={`row ${className}`}>
       <div className="row__header">
         <span className="bold">{convertDateTime(get(crumb, 'timestamp'))}</span>
         <span className="tag">{get(crumb, 'category', '')}</span>
