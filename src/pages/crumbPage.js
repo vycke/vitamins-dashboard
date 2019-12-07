@@ -18,10 +18,7 @@ export default function CrumbPage() {
   const { uploadFile, data } = React.useContext(AppContext);
   const [search, setSearch] = React.useState('');
   const [show, setShow] = React.useState(25);
-
-  const handleShow = () => {
-    setShow(show + 25);
-  };
+  const handleShow = () => setShow(show + 25);
 
   return (
     <>

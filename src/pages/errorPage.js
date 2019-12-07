@@ -47,6 +47,8 @@ function groupData(data) {
 export default function ErrorPage() {
   const { uploadFile, data } = React.useContext(AppContext);
   const [search, setSearch] = React.useState('');
+  const [show, setShow] = React.useState(25);
+  const handleShow = () => setShow(show + 25);
 
   const errors = filter(data.errors, search);
 
@@ -60,6 +62,11 @@ export default function ErrorPage() {
       {errors.map((l, i) => (
         <ErrorRow key={i} log={l} />
       ))}
+      {data.crumbs.length > show && (
+        <button className="more" onClick={handleShow}>
+          More...
+        </button>
+      )}
     </>
   );
 }

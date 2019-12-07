@@ -11,9 +11,10 @@ import {
 
 export default function Bars({ data, xKey, yKey }) {
   const [focus, setFocus] = React.useState(null);
+  console.log(data);
   return (
-    <div className="timeline">
-      <div style={{ height: '100%' }}>
+    <div className="timeline card">
+      <div style={{ height: '100%', width: '100%' }}>
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}

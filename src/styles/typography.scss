@@ -34,3 +34,21 @@ pre[class*='language-'] {
   background: var(--selection-bg) !important;
   text-shadow: 0 0 0 #000000;
 }
+
+a,
+a:active,
+a:link,
+a:visited,
+a:hover {
+  color: var(--green-200);
+}
+
+nav {
+  a,
+  a:active,
+  a:link,
+  a:visited,
+  a:hover {
+    color: var(--white);
+  }
+}

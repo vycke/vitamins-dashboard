@@ -9,7 +9,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.3.0",
-    "recharts": "^2.0.0-beta.1"
+    "recharts": "^2.0.0-beta.1",
+    "vitamins": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

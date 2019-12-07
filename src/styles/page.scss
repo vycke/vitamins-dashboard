@@ -12,9 +12,13 @@ button.more {
 }
 
 .timeline {
-  padding: 1rem;
   margin-bottom: 2rem;
   height: 14rem;
-  background: var(--white);
-  border-radius: 0.25rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
 }
