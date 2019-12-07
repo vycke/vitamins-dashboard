@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button.more {
+  color: var(--green-200);
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  text-decoration: underline;
+}
+
+.timeline {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  height: 14rem;
+  background: var(--white);
+  border-radius: 0.25rem;
+}

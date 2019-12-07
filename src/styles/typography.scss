@@ -1,0 +1,36 @@
+h1 {
+  font-size: 1.25rem;
+  font-family: var(--monospace);
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+// CODE BLOCKS
+pre[class*='language-'] {
+  font-size: 0.75rem;
+  padding: 1.25rem;
+  margin: 0rem 0rem;
+  background-color: var(--gray-100);
+  border-radius: 0.5rem;
+  tab-size: 2;
+  overflow-x: auto;
+
+  > code {
+    font-family: var(--monospace);
+  }
+}
+
+// INLINE CODE
+:not(pre) > code,
+:not(pre) > code[class*='language-'] {
+  font-family: var(--monospace);
+  font-size: 1rem;
+  color: var(--text-code);
+  background-color: transparent !important;
+}
+
+::selection:not(pre):not(code) {
+  color: (--selection-text) !important;
+  background: var(--selection-bg) !important;
+  text-shadow: 0 0 0 #000000;
+}
