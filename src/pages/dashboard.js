@@ -4,9 +4,11 @@ import { AppContext } from 'component/context';
 import convertDateTime from 'utils/convertDateTime';
 import { Link } from '@reach/router';
 import Timeline from 'component/timeline';
+import { createTimeLineData } from 'utils/timeline';
 
 export default function DashboardPage() {
   const { data, uploadFile } = React.useContext(AppContext);
+  const errors = createTimeLineData(data.errors, 'amount');
 
   return (
     <>
@@ -59,7 +61,7 @@ export default function DashboardPage() {
           </div>
         </div>
         <Timeline
-          data={data.errors}
+          data={errors}
           title="Errors over time"
           type="amount"
           className="grid-col-1-3"

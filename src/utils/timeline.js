@@ -4,7 +4,7 @@ import convertDateTime from './convertDateTime';
 function sum(list, key) {
   let result = 0;
   list.forEach((l) => {
-    result += l.metadata[key];
+    if (l.metadata) result += l.metadata[key];
   });
   return result;
 }
@@ -12,10 +12,12 @@ function sum(list, key) {
 export function createTimeLineData(
   data = [],
   type = 'amount',
+  metaKey,
   key = 'timestamp',
-  steps = 50,
-  metaKey
+  steps = 50
 ) {
+  if (!data || data.length === 0) return [];
+
   const firstDate = new Date(data[data.length - 1][key]);
   const lastDate = new Date(data[0][key]);
   const interval = Math.round(
@@ -33,9 +35,11 @@ export function createTimeLineData(
 
     let value;
     if (type === 'amount') value = filteredData.length;
-    else if (type === 'average')
-      value = sum(filteredData, metaKey) / filteredData.length;
     else if (type === 'total') value = sum(filteredData, metaKey);
+    else if (type === 'average') {
+      value = sum(filteredData, metaKey);
+      if (value !== 0) value = value / filteredData.length;
+    }
 
     groups.push({ timebox, [type]: value });
   }

@@ -5,6 +5,7 @@ import { AppContext } from 'component/context';
 import ErrorRow from 'component/errorRow';
 import Timeline from 'component/timeline';
 import { searchErrors } from 'utils/search';
+import { createTimeLineData } from 'utils/timeline';
 
 export default function ErrorPage() {
   const { uploadFile, data } = React.useContext(AppContext);
@@ -12,13 +13,14 @@ export default function ErrorPage() {
   const [show, setShow] = React.useState(25);
   const handleShow = () => setShow(show + 25);
 
-  const errors = searchErrors(data.errors, search);
+  const errors = searchErrors(data.errors, search) || [];
+  const timeline = createTimeLineData(errors, 'amount');
 
   return (
     <>
       <PageHeader label="errors" file="errors" onUpload={uploadFile} />
       <SearchBar value={search} onChange={setSearch} />
-      {errors.length > 1 && <Timeline data={errors} type="amount" />}
+      {errors.length > 1 && <Timeline data={timeline} type="amount" />}
       {errors.map((l, i) => (
         <ErrorRow key={i} log={l} />
       ))}
