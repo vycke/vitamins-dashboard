@@ -22,7 +22,7 @@ export function counter(list, key, metaKey) {
     if (index >= 0) {
       let item = result[index];
       item.count++;
-      item.value = item.value + get(l, `metadata.${metaKey}`, 0);
+      item.values = item.values + get(l, `metadata.${metaKey}`, 0);
     } else if (key && l.metadata[key]) {
       result.push({
         name: l.metadata[key],

@@ -10,7 +10,7 @@ export default function SearchBar({ value, onChange }) {
   };
 
   return (
-    <div className="search">
+    <div className="input gap-bottom gap-top">
       <span>Search: </span>
       <input value={search} onChange={(e) => handleChange(e.target.value)} />
     </div>

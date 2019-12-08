@@ -20,14 +20,14 @@ header {
   }
 }
 
-.search {
+.input {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2rem 0rem;
   background: var(--white);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
+  width: 100%;
   border: 1px solid var(--gray-200);
 
   > span {
