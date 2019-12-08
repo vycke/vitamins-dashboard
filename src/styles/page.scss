@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+button.more {
+  color: var(--green-200);
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  text-decoration: underline;
+}
+
+.timeline {
+  height: 14rem;
+}
+
+.toplist {
+  height: 30rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}

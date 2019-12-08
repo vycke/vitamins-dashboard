@@ -1,0 +1,25 @@
+nav {
+  .logo {
+    width: 1.5rem;
+    padding: 2.25rem 0rem;
+  }
+
+  .item {
+    width: 1.5rem;
+    padding: 0.75rem 0rem;
+
+    > svg {
+      width: 1.5rem;
+    }
+  }
+
+  .item svg path,
+  .item svg line {
+    stroke: var(--white);
+  }
+
+  .item.selected svg path,
+  .item.selected svg line {
+    stroke: var(--green-200);
+  }
+}
