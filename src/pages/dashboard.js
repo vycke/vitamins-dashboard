@@ -4,11 +4,18 @@ import { AppContext } from 'component/context';
 import convertDateTime from 'utils/convertDateTime';
 import { Link } from '@reach/router';
 import Timeline from 'component/timeline';
-import { createTimeLineData } from 'utils/timeline';
+import { createTimeLineData } from 'utils/statistics';
 
 export default function DashboardPage() {
-  const { data, uploadFile } = React.useContext(AppContext);
+  const { data, responses, settings, uploadFile } = React.useContext(
+    AppContext
+  );
   const errors = createTimeLineData(data.errors, 'amount');
+  const responsetimes = createTimeLineData(
+    responses,
+    'average',
+    settings.responseTimeKey
+  );
 
   return (
     <>
@@ -64,6 +71,12 @@ export default function DashboardPage() {
           data={errors}
           title="Errors over time"
           type="amount"
+          className="grid-col-1-3"
+        />
+        <Timeline
+          data={responsetimes}
+          type="average"
+          title="Average response time (ms)"
           className="grid-col-1-3"
         />
       </div>

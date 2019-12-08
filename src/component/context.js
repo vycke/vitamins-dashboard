@@ -9,10 +9,11 @@ export const Provider = ({ children }) => {
     crumbs: []
   });
   const [settings, setSettings] = React.useState({
-    navigationKey: 'navigation',
-    requestKey: 'request',
-    responseKey: 'response',
-    responseTimeKey: 'time'
+    navigationCategory: 'navigation',
+    requestCategory: 'request',
+    responseCategory: 'response',
+    responseTimeKey: 'time',
+    requestNameKey: 'name'
   });
 
   const updateSettings = (key, value) => {
@@ -37,8 +38,27 @@ export const Provider = ({ children }) => {
     }
   };
 
+  const navigations = data.crumbs.filter(
+    (c) => c.category === settings.navigationCategory
+  );
+  const responses = data.crumbs.filter(
+    (c) => c.category === settings.responseCategory
+  );
+  const requests = data.crumbs.filter(
+    (c) => c.category === settings.requestCategory
+  );
+
   return (
-    <AppContext.Provider value={{ data, uploadFile, settings, updateSettings }}>
+    <AppContext.Provider
+      value={{
+        data,
+        uploadFile,
+        settings,
+        updateSettings,
+        navigations,
+        requests,
+        responses
+      }}>
       {children}
     </AppContext.Provider>
   );

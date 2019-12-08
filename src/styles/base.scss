@@ -72,6 +72,7 @@ header {
       display: grid;
       margin-top: 2rem;
       grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
       gap: 1rem;
       width: 100%;
       text-align: center;
@@ -80,6 +81,15 @@ header {
         color: var(--green-200);
         text-decoration: underline;
       }
+    }
+
+    .list {
+      display: grid;
+      padding: 0rem 1rem;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      width: 100%;
+      text-align: left;
     }
   }
 }

@@ -5,7 +5,7 @@ import { AppContext } from 'component/context';
 import ErrorRow from 'component/errorRow';
 import Timeline from 'component/timeline';
 import { searchErrors } from 'utils/search';
-import { createTimeLineData } from 'utils/timeline';
+import { createTimeLineData } from 'utils/statistics';
 
 export default function ErrorPage() {
   const { uploadFile, data } = React.useContext(AppContext);
