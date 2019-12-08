@@ -3,6 +3,7 @@ import PageHeader from 'component/pageHeader';
 import { AppContext } from 'component/context';
 import convertDateTime from 'utils/convertDateTime';
 import { Link } from '@reach/router';
+import Timeline from 'component/timeline';
 
 export default function DashboardPage() {
   const { data, uploadFile } = React.useContext(AppContext);
@@ -57,6 +58,12 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
+        <Timeline
+          data={data.errors}
+          title="Errors over time"
+          type="amount"
+          className="grid-col-1-3"
+        />
       </div>
     </>
   );

@@ -1,45 +1,39 @@
 import React from 'react';
 import {
   ResponsiveContainer,
-  BarChart,
+  AreaChart,
   XAxis,
   YAxis,
   Tooltip,
-  Bar,
-  Cell
+  Area
 } from 'recharts';
+import { createTimeLineData } from 'utils/timeline';
 
-export default function Bars({ data, xKey, yKey }) {
-  const [focus, setFocus] = React.useState(null);
-  console.log(data);
+export default function Timeline({
+  data,
+  type,
+  key,
+  metaKey,
+  className = '',
+  title
+}) {
+  if (!data || data.length <= 1) return null;
   return (
-    <div className="timeline card">
+    <div className={`timeline card ${className}`}>
+      {title && <h2 className="card__header">{title}</h2>}
       <div style={{ height: '100%', width: '100%' }}>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={data}
-            barCategoryGap="1%"
-            onMouseMove={(state) => {
-              if (state.isTooltipActive) setFocus(state.activeTooltipIndex);
-              else setFocus(null);
-            }}>
-            <XAxis dataKey={xKey} inteval="preserveStartEnd" />
+          <AreaChart data={createTimeLineData(data, type, key, 50, metaKey)}>
+            <XAxis dataKey="timebox" inteval="preserveStartEnd" />
             <YAxis />
-            <Tooltip
-              cursor={{
-                backgroundColor: '#eaeff6'
-              }}
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey={type}
+              stroke="#00A78E"
+              fill="#00A78E"
             />
-
-            <Bar dataKey={yKey}>
-              {data.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={focus === index ? '#248F86' : '#00A78E'}
-                />
-              ))}
-            </Bar>
-          </BarChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>

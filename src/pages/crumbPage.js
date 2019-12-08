@@ -3,16 +3,7 @@ import PageHeader from 'component/pageHeader';
 import SearchBar from 'component/searchBar';
 import { AppContext } from 'component/context';
 import CrumbRow from 'component/crumbRow';
-
-function filter(list, terms) {
-  const termList = terms.split(' ').map((t) => t.toUpperCase());
-
-  return list.filter(
-    (l) =>
-      termList.some((t) => l.message.toUpperCase().includes(t)) ||
-      termList.some((t) => l.category.toUpperCase().includes(t))
-  );
-}
+import { searchCrumbs } from 'utils/search';
 
 export default function CrumbPage() {
   const { uploadFile, data } = React.useContext(AppContext);
@@ -24,7 +15,7 @@ export default function CrumbPage() {
     <>
       <PageHeader label="crumbs" file="crumbs" onUpload={uploadFile} />
       <SearchBar value={search} onChange={setSearch} />
-      {filter(data.crumbs, search)
+      {searchCrumbs(data.crumbs, search)
         .slice(0, show)
         .map((l, i) => (
           <CrumbRow key={i} crumb={l} />
