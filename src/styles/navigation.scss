@@ -13,11 +13,13 @@ nav {
     }
   }
 
-  .item svg path {
+  .item svg path,
+  .item svg line {
     stroke: var(--white);
   }
 
-  .item.selected svg path {
+  .item.selected svg path,
+  .item.selected svg line {
     stroke: var(--green-200);
   }
 }

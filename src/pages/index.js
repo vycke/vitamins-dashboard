@@ -6,6 +6,7 @@ import DashboardPage from './dashboard';
 import ErrorPage from './errorPage';
 import CrumbPage from './crumbPage';
 import HealthPage from './healthPage';
+import SettingsPage from './settingsPage';
 import { Provider } from '../component/context';
 
 export default function AppIndex() {
@@ -19,6 +20,7 @@ export default function AppIndex() {
               <ErrorPage path="/errors" />
               <CrumbPage path="/crumbs" />
               <HealthPage path="/health" />
+              <SettingsPage path="/settings" />
               <DashboardPage path="/" />
             </Router>
           </main>

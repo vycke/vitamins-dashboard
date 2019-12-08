@@ -8,6 +8,19 @@ export const Provider = ({ children }) => {
     errors: [],
     crumbs: []
   });
+  const [settings, setSettings] = React.useState({
+    navigationKey: 'navigation',
+    requestKey: 'request',
+    responseKey: 'response',
+    responseTimeKey: 'time'
+  });
+
+  const updateSettings = (key, value) => {
+    setSettings({
+      ...settings,
+      [key]: value
+    });
+  };
 
   const uploadFile = (files, type = 'errors') => {
     for (let i = 0; i < files.length; i++) {
@@ -25,7 +38,7 @@ export const Provider = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ data, uploadFile }}>
+    <AppContext.Provider value={{ data, uploadFile, settings, updateSettings }}>
       {children}
     </AppContext.Provider>
   );
