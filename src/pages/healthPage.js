@@ -39,6 +39,7 @@ export default function HealthPage() {
       value: t.values / t.count
     }))
     .sort((a, b) => b.value - a.value)
+    .filter((t) => t.count > 1)
     .map((t) => ({
       name: t.name,
       count: `${round(t.value)}ms (${t.count})`
