@@ -73,7 +73,7 @@ export function createTimeLineData(
       if (value !== 0) value = value / filteredData.length;
     }
 
-    groups.push({ timebox, [type]: value });
+    groups.push({ timebox, [type]: round(value) });
   }
 
   return groups;
