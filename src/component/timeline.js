@@ -5,7 +5,8 @@ import {
   YAxis,
   Tooltip,
   Area,
-  ComposedChart
+  ComposedChart,
+  CartesianGrid
 } from 'recharts';
 
 const colors = ['#00A78E', '#477CD1', '#82D7D0', '#85A8E0', '#828AA4'];
@@ -26,6 +27,8 @@ export default function Timeline({ data, keys, className = '', title }) {
                   orientation={i % 2 === 0 ? 'left' : 'right'}
                 />
               ))}
+              {keys.length > 1 && <CartesianGrid strokeDasharray="3 3" />}
+
               <Tooltip />
               {keys.map((k, i) => (
                 <Area
