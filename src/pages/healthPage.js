@@ -52,7 +52,7 @@ export default function HealthPage() {
       <div className="dashboard">
         <Timeline
           data={navigationtimes}
-          type="amount"
+          keys={['amount']}
           title="Page visits over time"
           className="grid-col-1-3"
         />
@@ -61,7 +61,7 @@ export default function HealthPage() {
 
         <Timeline
           data={responsetimes}
-          type="average"
+          keys={['average', 'count']}
           title="Average response time (ms)"
           className="grid-col-1-3"
         />

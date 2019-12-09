@@ -70,12 +70,12 @@ export default function DashboardPage() {
         <Timeline
           data={errors}
           title="Errors over time"
-          type="amount"
+          keys={['amount']}
           className="grid-col-1-3"
         />
         <Timeline
           data={responsetimes}
-          type="average"
+          keys={['average']}
           title="Average response time (ms)"
           className="grid-col-1-3"
         />

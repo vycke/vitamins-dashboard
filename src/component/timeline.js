@@ -1,31 +1,43 @@
 import React from 'react';
 import {
   ResponsiveContainer,
-  AreaChart,
   XAxis,
   YAxis,
   Tooltip,
-  Area
+  Area,
+  ComposedChart
 } from 'recharts';
 
-export default function Timeline({ data, type, className = '', title }) {
+const colors = ['#00A78E', '#477CD1', '#82D7D0', '#85A8E0', '#828AA4'];
+
+export default function Timeline({ data, keys, className = '', title }) {
   return (
     <div className={`timeline card ${className}`}>
       {title && <h2 className="card__header">{title}</h2>}
       {data && data.length > 1 && (
         <div style={{ height: '100%', width: '100%' }}>
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data}>
+            <ComposedChart data={data}>
               <XAxis dataKey="timebox" inteval="preserveStartEnd" />
-              <YAxis />
+              {keys.map((k, i) => (
+                <YAxis
+                  yAxisId={k}
+                  dataKey={k}
+                  orientation={i % 2 === 0 ? 'left' : 'right'}
+                />
+              ))}
               <Tooltip />
-              <Area
-                type="monotone"
-                dataKey={type}
-                stroke="#00A78E"
-                fill="#00A78E"
-              />
-            </AreaChart>
+              {keys.map((k, i) => (
+                <Area
+                  type="monotone"
+                  dataKey={k}
+                  yAxisId={k}
+                  opacity="0.7"
+                  stroke={colors[i]}
+                  fill={colors[i]}
+                />
+              ))}
+            </ComposedChart>
           </ResponsiveContainer>
         </div>
       )}
