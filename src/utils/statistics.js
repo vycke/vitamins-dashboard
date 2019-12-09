@@ -82,7 +82,7 @@ export function createTimeLineData(
 export function highest(list, key, nameKey) {
   const result = [...list]
     .sort((a, b) => get(b, `metadata.${key}`, 0) - get(a, `metadata.${key}`, 0))
-    .slice(0, 5);
+    .slice(0, 10);
 
   return result.map((t) => ({
     name: get(t, `metadata.${nameKey}`, t.message),

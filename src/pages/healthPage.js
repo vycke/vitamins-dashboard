@@ -40,7 +40,7 @@ export default function HealthPage() {
     }))
     .sort((a, b) => b.value - a.value)
     .filter((t) => t.count > 1)
-    .slice(0, 5)
+    .slice(0, 10)
     .map((t) => ({
       name: t.name,
       count: `${round(t.value)}ms (${t.count})`
@@ -56,8 +56,8 @@ export default function HealthPage() {
           title="Page visits over time"
           className="grid-col-1-3"
         />
-        <TopList title="Top 5 pages" data={topPages.slice(0, 5)} />
-        <TopList title="Top 5 requests" data={topRequests.slice(0, 5)} />
+        <TopList title="Top 10 pages" data={topPages.slice(0, 10)} />
+        <TopList title="Top 10 requests" data={topRequests.slice(0, 10)} />
 
         <Timeline
           data={responsetimes}
@@ -65,8 +65,8 @@ export default function HealthPage() {
           title="Average response time (ms)"
           className="grid-col-1-3"
         />
-        <TopList title="Top 5 longest requests" data={topTimes} />
-        <TopList title="Top 5 longest requests (avg)" data={topRequestsAvg} />
+        <TopList title="Top 10 longest requests" data={topTimes} />
+        <TopList title="Top 10 longest requests (avg)" data={topRequestsAvg} />
       </div>
     </>
   );
