@@ -20,29 +20,6 @@ header {
   }
 }
 
-.input {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: var(--white);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  width: 100%;
-  border: 1px solid var(--gray-200);
-
-  > span {
-    font-size: 0.75rem;
-    font-weight: 600;
-  }
-
-  > input {
-    flex-grow: 1;
-    margin-left: 1rem;
-    outline: none;
-    border: none;
-  }
-}
-
 .card {
   background: var(--white);
   border-radius: 0.25rem;
@@ -91,5 +68,9 @@ header {
       width: 100%;
       text-align: left;
     }
+  }
+
+  .card__content--left {
+    align-items: flex-start;
   }
 }

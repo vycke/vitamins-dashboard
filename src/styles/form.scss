@@ -1,0 +1,92 @@
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--white);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  border: 1px solid var(--gray-200);
+
+  > span {
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  > input {
+    flex-grow: 1;
+    margin-left: 1rem;
+    outline: none;
+    border: none;
+  }
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-size: 0.75rem;
+  }
+
+  select {
+    background: var(--white);
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    border: 1px solid var(--gray-200);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, var(--gray-300), var(--gray-300));
+    background-position: calc(100% - 20px) calc(1em + 2px),
+      calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+  }
+}
+
+/* The switch - the box around the slider */
+.toggle {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 2.5em;
+  height: 1.5em;
+  font-size: inherit;
+  transition: all ease-in-out 100ms;
+  background: var(--gray-100);
+  border-radius: 2rem;
+  border: 1px solid var(--gray-400);
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+  display: none;
+}
+
+.toggle .thumb {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(1.5rem - 2px);
+  width: calc(1.5rem - 2px);
+  background: var(--gray-300);
+  border-radius: 2rem;
+  transition: all ease-in-out 200ms;
+}
+
+.toggle[data-state='true'] .thumb {
+  transform: translateX(1rem);
+  background: var(--green-200);
+}

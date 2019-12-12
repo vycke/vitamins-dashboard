@@ -1,5 +1,6 @@
 import React from 'react';
 import { debounce } from 'vitamins';
+import Input from './input';
 
 export default function SearchBar({ value, onChange }) {
   const [search, setSearch] = React.useState(value);
@@ -10,9 +11,11 @@ export default function SearchBar({ value, onChange }) {
   };
 
   return (
-    <div className="input gap-bottom gap-top">
-      <span>Search: </span>
-      <input value={search} onChange={(e) => handleChange(e.target.value)} />
-    </div>
+    <Input
+      value={search}
+      onChange={handleChange}
+      className="gap-bottom gap-top"
+      label="Search:"
+    />
   );
 }

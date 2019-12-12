@@ -1,5 +1,6 @@
 import React from 'react';
 import get from 'utils/get';
+import { regexp } from '../constants';
 
 export const AppContext = React.createContext();
 
@@ -13,7 +14,9 @@ export const Provider = ({ children }) => {
     requestCategory: 'request',
     responseCategory: 'response',
     responseTimeKey: 'time',
-    requestNameKey: 'name'
+    requestNameKey: 'name',
+    obfuscateIds: true,
+    idType: 'guid'
   });
 
   const updateSettings = (key, value) => {
@@ -38,9 +41,15 @@ export const Provider = ({ children }) => {
     }
   };
 
-  const navigations = data.crumbs.filter(
-    (c) => c.category === settings.navigationCategory
-  );
+  const navigations = data.crumbs
+    .filter((c) => c.category === settings.navigationCategory)
+    .map((c) => {
+      if (!settings.obfuscateIds) return c;
+      return {
+        ...c,
+        message: c.message.replace(regexp[settings.idType], '***')
+      };
+    });
   const responses = data.crumbs.filter(
     (c) => c.category === settings.responseCategory
   );

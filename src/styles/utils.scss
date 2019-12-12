@@ -6,6 +6,16 @@
   flex-grow: 1;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  > * + * {
+    margin-left: 1rem;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -23,11 +33,11 @@
 }
 
 .gap-top {
-  margin-top: 2rem;
+  margin-top: 2rem !important;
 }
 
 .gap-bottom {
-  margin-bottom: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .text-right {
