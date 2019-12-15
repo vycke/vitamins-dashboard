@@ -59,6 +59,7 @@ export default function HealthPage() {
         <Timeline
           data={navigationtimes}
           keys={['amount']}
+          type={settings.graphType}
           title="Page visits over time"
           className="grid-col-1-3"
         />
@@ -68,6 +69,7 @@ export default function HealthPage() {
         <Timeline
           data={responsetimes}
           keys={['average', 'count']}
+          type={settings.graphType}
           title="Average response time (ms)"
           className="grid-col-1-3"
         />

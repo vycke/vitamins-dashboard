@@ -11,7 +11,7 @@ import {
 
 const colors = ['#00A78E', '#477CD1', '#82D7D0', '#85A8E0', '#828AA4'];
 
-export default function Timeline({ data, keys, className = '', title }) {
+export default function Timeline({ data, keys, className = '', title, type }) {
   const boundaries = keys.map((k) => {
     const numbers = data
       .map((d) => Number(d[k]))
@@ -46,7 +46,7 @@ export default function Timeline({ data, keys, className = '', title }) {
               {keys.map((k, i) => (
                 <Area
                   key={i}
-                  type="monotone"
+                  type={type}
                   dataKey={k}
                   yAxisId={k}
                   opacity="0.7"

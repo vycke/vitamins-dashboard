@@ -17,7 +17,8 @@ export const Provider = ({ children }) => {
     requestNameKey: 'name',
     obfuscateIds: true,
     idType: 'guid',
-    numberOfSteps: 50
+    numberOfSteps: 50,
+    graphType: 'step'
   });
 
   const updateSettings = (key, value) => {

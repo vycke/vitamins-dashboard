@@ -10,6 +10,14 @@ const options = [
   { label: 'BSON ID', value: 'bson' }
 ];
 
+const graphOptions = [
+  { label: 'Monotone', value: 'monotone' },
+  { label: 'Steps', value: 'step' },
+  { label: 'Basis', value: 'basis' },
+  { label: 'Linear', value: 'linear' },
+  { label: 'Natural', value: 'natural' }
+];
+
 export default function SettingsPage() {
   const { settings, updateSettings } = React.useContext(AppContext);
 
@@ -82,12 +90,19 @@ export default function SettingsPage() {
           </div>
         </div>
         <div className="card">
-          <h2 className="card__header">General configuration</h2>
-          <div className="card__content">
+          <h2 className="card__header">Graph configuration</h2>
+          <div className="card__content card__content--left">
             <Input
               value={settings.numberOfSteps}
               onChange={(v) => updateSettings('numberOfSteps', v)}
               label="# graph points:"
+            />
+            <Dropdown
+              options={graphOptions}
+              className="gap-top"
+              label="Graph type"
+              value={settings.graphType}
+              onChange={(v) => updateSettings('graphType', v)}
             />
           </div>
         </div>

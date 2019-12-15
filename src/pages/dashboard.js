@@ -78,11 +78,13 @@ export default function DashboardPage() {
           data={errors}
           title="Errors over time"
           keys={['amount']}
+          type={settings.graphType}
           className="grid-col-1-3"
         />
         <Timeline
           data={responsetimes}
           keys={['average']}
+          type={settings.graphType}
           title="Average response time (ms)"
           className="grid-col-1-3"
         />

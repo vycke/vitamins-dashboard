@@ -26,7 +26,12 @@ export default function ErrorPage() {
       <PageHeader label="errors" file="errors" onUpload={uploadFile} />
       <SearchBar value={search} onChange={setSearch} />
       {errors.length > 1 && (
-        <Timeline data={timeline} keys={['amount']} className="gap-bottom" />
+        <Timeline
+          data={timeline}
+          keys={['amount']}
+          className="gap-bottom"
+          type={settings.graphType}
+        />
       )}
       {errors.map((l, i) => (
         <ErrorRow key={i} log={l} />
