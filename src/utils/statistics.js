@@ -45,13 +45,12 @@ export function createTimeLineData(
   data = [],
   type = 'amount',
   metaKey,
-  key = 'timestamp',
   steps = 50
 ) {
   if (!data || data.length === 0) return [];
 
-  const firstDate = new Date(data[data.length - 1][key]);
-  const lastDate = new Date(data[0][key]);
+  const firstDate = new Date(data[data.length - 1]['timestamp']);
+  const lastDate = new Date(data[0]['timestamp']);
   const interval = Math.round(
     differenceInSeconds(lastDate, firstDate) / (steps - 1)
   );
@@ -63,7 +62,9 @@ export function createTimeLineData(
       firstDate.setSeconds(firstDate.getSeconds() + interval)
     ).toISOString();
     const timebox = convertDateTime(start);
-    const filteredData = data.filter((d) => d[key] <= end && d[key] >= start);
+    const filteredData = data.filter(
+      (d) => d['timestamp'] <= end && d['timestamp'] >= start
+    );
 
     let value;
     if (type === 'amount') value = filteredData.length;

@@ -10,11 +10,18 @@ export default function DashboardPage() {
   const { data, responses, settings, uploadFile } = React.useContext(
     AppContext
   );
-  const errors = createTimeLineData(data.errors, 'amount');
+  const errors = createTimeLineData(
+    data.errors,
+    'amount',
+    null,
+    settings.numberOfSteps
+  );
+
   const responsetimes = createTimeLineData(
     responses,
     'average',
-    settings.responseTimeKey
+    settings.responseTimeKey,
+    settings.numberOfSteps
   );
 
   return (

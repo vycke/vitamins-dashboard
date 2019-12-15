@@ -8,13 +8,18 @@ import { searchErrors } from 'utils/search';
 import { createTimeLineData } from 'utils/statistics';
 
 export default function ErrorPage() {
-  const { uploadFile, data } = React.useContext(AppContext);
+  const { uploadFile, data, settings } = React.useContext(AppContext);
   const [search, setSearch] = React.useState('');
   const [show, setShow] = React.useState(25);
   const handleShow = () => setShow(show + 25);
 
   const errors = searchErrors(data.errors, search) || [];
-  const timeline = createTimeLineData(errors, 'amount');
+  const timeline = createTimeLineData(
+    errors,
+    'amount',
+    null,
+    settings.numberOfSteps
+  );
 
   return (
     <>

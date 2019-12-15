@@ -18,9 +18,15 @@ export default function HealthPage() {
   const responsetimes = createTimeLineData(
     responses,
     'average',
-    settings.responseTimeKey
+    settings.responseTimeKey,
+    settings.numberOfSteps
   );
-  const navigationtimes = createTimeLineData(navigations, 'amount');
+  const navigationtimes = createTimeLineData(
+    navigations,
+    'amount',
+    null,
+    settings.numberOfSteps
+  );
   const topPages = counter(navigations);
   const topRequests = counter(requests, settings.requestNameKey);
   const topTimes = highest(

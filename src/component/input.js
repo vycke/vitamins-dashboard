@@ -6,7 +6,7 @@ const Input = ({ value, onChange, label, className = '', ...props }) => {
 
   return (
     <div className={`input ${className}`}>
-      <label htmlFor={ref.current}>Search: </label>
+      <label htmlFor={ref.current}>{label}</label>
       <input
         id={ref.current}
         value={value}

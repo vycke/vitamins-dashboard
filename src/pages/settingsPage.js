@@ -81,6 +81,16 @@ export default function SettingsPage() {
             )}
           </div>
         </div>
+        <div className="card">
+          <h2 className="card__header">General configuration</h2>
+          <div className="card__content">
+            <Input
+              value={settings.numberOfSteps}
+              onChange={(v) => updateSettings('numberOfSteps', v)}
+              label="# graph points:"
+            />
+          </div>
+        </div>
       </div>
     </>
   );

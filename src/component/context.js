@@ -16,7 +16,8 @@ export const Provider = ({ children }) => {
     responseTimeKey: 'time',
     requestNameKey: 'name',
     obfuscateIds: true,
-    idType: 'guid'
+    idType: 'guid',
+    numberOfSteps: 50
   });
 
   const updateSettings = (key, value) => {
