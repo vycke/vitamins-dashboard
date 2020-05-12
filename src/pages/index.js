@@ -3,8 +3,7 @@ import { Router } from '@reach/router';
 import packageJson from '../../package.json';
 import SideBar from 'component/sidebar';
 import DashboardPage from './dashboard';
-import ErrorPage from './errorPage';
-import CrumbPage from './crumbPage';
+import LogsPage from './logsPage';
 import HealthPage from './healthPage';
 import SettingsPage from './settingsPage';
 import { Provider } from '../component/context';
@@ -17,8 +16,7 @@ export default function AppIndex() {
         <div className="scrollable">
           <main className="content">
             <Router>
-              <ErrorPage path="/errors" />
-              <CrumbPage path="/crumbs" />
+              <LogsPage path="/logs" />
               <HealthPage path="/health" />
               <SettingsPage path="/settings" />
               <DashboardPage path="/" />

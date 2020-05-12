@@ -7,7 +7,7 @@ export const AppContext = React.createContext();
 export const Provider = ({ children }) => {
   const [data, setData] = React.useState({
     errors: [],
-    crumbs: []
+    actions: []
   });
   const [settings, setSettings] = React.useState({
     navigationCategory: 'navigation',
@@ -28,22 +28,24 @@ export const Provider = ({ children }) => {
     });
   };
 
-  const uploadFile = (files, type = 'errors') => {
-    for (let i = 0; i < files.length; i++) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        setData((old) => ({
-          ...old,
-          [type]: get(old, type, [])
-            .concat(JSON.parse(event.target.result))
-            .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
-        }));
-      };
-      reader.readAsText(files[i]);
-    }
+  const uploadFile = (files) => {
+    const reader = new FileReader();
+    reader.onload = function(event) {
+      const data = JSON.parse(event.target.result);
+      setData((old) => ({
+        ...old,
+        actions: get(old, 'actions', [])
+          .concat(data.actions)
+          .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1)),
+        errors: get(old, 'errors', [])
+          .concat(data.errors)
+          .sort((a, b) => (a.timestamp < b.timestamp ? 1 : -1))
+      }));
+    };
+    reader.readAsText(files[0]);
   };
 
-  const navigations = data.crumbs
+  const navigations = data.actions
     .filter((c) => c.category === settings.navigationCategory)
     .map((c) => {
       if (!settings.obfuscateIds) return c;
@@ -52,10 +54,10 @@ export const Provider = ({ children }) => {
         message: c.message.replace(regexp[settings.idType], '***')
       };
     });
-  const responses = data.crumbs.filter(
+  const responses = data.actions.filter(
     (c) => c.category === settings.responseCategory
   );
-  const requests = data.crumbs.filter(
+  const requests = data.actions.filter(
     (c) => c.category === settings.requestCategory
   );
 

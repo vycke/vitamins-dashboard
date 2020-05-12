@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/vitamins-logo.svg';
 import { Link } from '@reach/router';
 import NavLink from './navLink';
-import { ErrorIcon, CrumbIcon, HealthIcon, SettingsIcon } from './icons';
+import { LogsIcon, HealthIcon, SettingsIcon } from './icons';
 
 export default function SideBar() {
   return (
@@ -14,11 +14,8 @@ export default function SideBar() {
           className="logo"
         />
       </Link>
-      <NavLink to="/errors" className="item">
-        <ErrorIcon />
-      </NavLink>
-      <NavLink to="/crumbs" className="item">
-        <CrumbIcon />
+      <NavLink to="/logs" className="item">
+        <LogsIcon />
       </NavLink>
       <NavLink to="/health" className="item">
         <HealthIcon />

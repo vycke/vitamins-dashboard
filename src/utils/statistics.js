@@ -1,5 +1,5 @@
 import { differenceInSeconds } from 'date-fns';
-import convertDateTime from './convertDateTime';
+import convertDateTime from './convert';
 import get from './get';
 import round from './round';
 
