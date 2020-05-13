@@ -8,8 +8,6 @@ export default function LogsPage({ className = '' }) {
   const [tab, setTab] = React.useState('errors');
   const { data, uploadFile } = React.useContext(AppContext);
 
-  console.log(data);
-
   return (
     <>
       <PageHeader label="logs" onUpload={uploadFile} />

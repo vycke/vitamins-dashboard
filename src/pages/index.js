@@ -2,10 +2,10 @@ import React from 'react';
 import { Router } from '@reach/router';
 import packageJson from '../../package.json';
 import SideBar from 'component/sidebar';
-import DashboardPage from './dashboard';
+// import DashboardPage from './dashboard';
 import LogsPage from './logsPage';
-import HealthPage from './healthPage';
-import SettingsPage from './settingsPage';
+// import HealthPage from './healthPage';
+// import SettingsPage from './settingsPage';
 import { Provider } from '../component/context';
 
 export default function AppIndex() {
@@ -16,10 +16,10 @@ export default function AppIndex() {
         <div className="scrollable">
           <main className="content">
             <Router>
-              <LogsPage path="/logs" />
+              {/* <LogsPage path="/logs" />
               <HealthPage path="/health" />
-              <SettingsPage path="/settings" />
-              <DashboardPage path="/" />
+              <SettingsPage path="/settings" /> */}
+              <LogsPage path="/" />
             </Router>
           </main>
           <footer>{`Version: ${packageJson.version}`}</footer>
