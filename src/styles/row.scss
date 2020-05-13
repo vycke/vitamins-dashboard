@@ -6,22 +6,27 @@
 
 .switcher {
   border: 1px solid var(--gray-500);
-  border-radius: 0.25rem;
+  // border-radius: 0.25rem;
   margin-top: 1rem;
   font-size: 0.75rem;
 
   button {
     padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
+    // border-radius: 0.25rem;
 
     &:hover {
       background: var(--green-200);
+      border-radius: 0;
     }
   }
 
   .selected {
     background: var(--gray-500);
     color: white;
+
+    &:hover {
+      background: var(--green-200);
+    }
   }
 }
 
